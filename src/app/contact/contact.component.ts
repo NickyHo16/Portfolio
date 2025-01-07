@@ -36,7 +36,7 @@ export class ContactComponent implements OnInit {
   showGreenCheckEmail = false;
   showGreenCheckMessage = false;
 
-  //isPrivacyChecked: boolean = false; // Initialer Zustand der Checkbox
+  isPrivacyChecked: boolean = false; // Initialer Zustand der Checkbox
 
   showLoader = false;
   emailSent = false;
@@ -68,7 +68,14 @@ export class ContactComponent implements OnInit {
         {
           method: 'POST',
           body: formData,
+          mode: 'cors', // Setzt den Modus auf CORS
+            headers: {
+                // Fügt Standard-Header hinzu, falls benötigt
+                'Accept': 'application/json', 
+                // Falls der Server einen bestimmten Content-Type erwartet
+                'Content-Type': 'application/x-www-form-urlencoded',
         }
+      }
       );
 
       if (!response.ok) {
@@ -85,7 +92,7 @@ export class ContactComponent implements OnInit {
         this.showLoader = false;
         setTimeout(() => {          
           this.resetForm();
-        }, 5000);
+        }, 2500);
       } else {
         console.error('Failed to send email:', result.message);
         this.emailSent = false;

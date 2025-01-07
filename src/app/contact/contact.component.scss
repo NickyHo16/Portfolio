@@ -174,10 +174,10 @@
     cursor: pointer;
   }
 
-  //button:disabled {
-  //  opacity: 0.1; /* Reduziert die Sichtbarkeit des Buttons */
-  //  cursor: not-allowed; /* Zeigt an, dass der Button nicht klickbar ist */
-  //}
+  button:disabled {
+    opacity: 0.1; /* Reduziert die Sichtbarkeit des Buttons */
+    cursor: not-allowed; /* Zeigt an, dass der Button nicht klickbar ist */
+  }
   
   .d-none{
     display: none !important;
