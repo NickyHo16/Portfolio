@@ -1,57 +1,56 @@
 <div class="contact-headline-container" id="contact-section" data-aos="fade-up">
   <div class="purple-line"></div>
-  <h1>Contact</h1>
+  <h1>{{ translate('CONTACT_TITLE') }}</h1>
 </div>
 
 <div class="contact-me-container" data-aos="zoom-in">
   <div class="solving-problem-container">
-    <h2>Got a problem to solve?</h2>
+    <h2>{{ translate('CONTACT_DESCRIPTION') }}</h2>
     <p>
-      Contact me through this form, I am interested in hearing you, knowing your
-      ideas and contributing to your projects with my work.
+      {{ translate('CONTACT_DESCRIPTION_2') }}
     </p>
-    <span>Need a Frontend developer? <b>Contact me!</b> </span>
+    <span> {{ translate('CONTACT_DESCRIPTION_3') }} <b>{{ translate('CONTACT_DESCRIPTION_4') }}</b> </span>
   </div>
   <form (submit)="sendMail()" #myForm ngNativeValidate class="form-container">
     <div class="wrapper">
-      <input required type="text" name="name" placeholder="Your name" #nameField (input)="onInput('name')"
+      <input required type="text" name="name" placeholder="{{ translate('NAME_INPUT') }}" #nameField (input)="onInput('name')"
         (blur)="onBlur($event)" />
 
       <div class="message-box">
-        <span *ngIf="showWarningName">Your name is required</span>
+        <span *ngIf="showWarningName">{{ translate('NAME_REQUIRED') }}</span>
       </div>
       <img *ngIf="showGreenCheckName" src="/assets/img/green-go.png" />
     </div>
 
     <div class="wrapper" >
-      <input required type="email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}$"  name="email" #emailField placeholder="Your email" (input)="onInput('email')"
+      <input required type="email" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}$"  name="email" #emailField placeholder="{{ translate('EMAIL_INPUT') }}" (input)="onInput('email')"
         (blur)="onBlur($event)" />
       <div class="message-box">
-        <span *ngIf="showWarningEmail">Your email is required</span>
+        <span *ngIf="showWarningEmail">{{ translate('EMAIL_REQUIRED') }}</span>
       </div>
       <img *ngIf="showGreenCheckEmail" src="/assets/img/green-go.png" />
     </div>
     <div class="wrapper">
-      <textarea required type="text" name="message" placeholder="Your message" #messageField
+      <textarea required type="text" name="message" placeholder="{{ translate('MASSAGE_INPUT') }}" #messageField
         (input)="onInput('message')" (blur)="onBlur($event)"></textarea>
       <div class="message-box">
-        <span *ngIf="showWarningMessage">Your message is required</span>
+        <span *ngIf="showWarningMessage">{{ translate('MASSAGE_REQUIRED') }}</span>
       </div>
       <img *ngIf="showGreenCheckMessage" src="/assets/img/green-go.png" />
     </div>
     <div class="wrapper">
       <label>
         <input type="checkbox" name="privacyPolicy" required [(ngModel)]="isPrivacyChecked" /> 
-      I have read the Privacy Policy and agree to the processing of my data as described.
+        {{ translate('PRIVACY_CHECK') }} <a routerLink="/privacy">{{ translate('PRIVACY_CHECK_2') }}</a> {{ translate('PRIVACY_CHECK_3') }}
       </label>
     </div>
     <button class="contact-button send-button" #sendButton type="submit"
       [ngClass]="{ sent: emailSent, 'd-none': addClassToButton }" [disabled]="!isPrivacyChecked">
-      <span class="message" *ngIf="!emailSent">Send Message</span>
+      <span class="message" *ngIf="!emailSent">{{ translate('BUTTON_SENDMAIL') }}</span>
     </button>
     <div class="message-sent-container">
       <span class="message-sent" *ngIf="emailSent && showSpanMsg">
-        Your email has been send successfully!</span>
+        {{ translate('SENDMAIL_CONTENT') }}</span>
     </div>
   </form>
 </div>

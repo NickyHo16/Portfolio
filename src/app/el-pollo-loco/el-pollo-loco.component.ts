@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslationService } from '../services/translation.service';
 
 @Component({
   selector: 'app-el-pollo-loco',
@@ -8,5 +9,10 @@ import { Component } from '@angular/core';
   styleUrl: './el-pollo-loco.component.scss'
 })
 export class ElPolloLocoComponent {
+  constructor(private translationService: TranslationService) {}
 
+  // Funktion zum Übersetzen von Text
+  translate(key: string): string {
+    return this.translationService.getTranslation(key);
+  }
 }

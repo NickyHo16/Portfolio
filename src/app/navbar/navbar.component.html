@@ -5,13 +5,17 @@
             style="color: #2f2bea">e</span></span>
       </div>
       <div class="navbar-right-links">
-        <a class="links" *ngIf="!imprintSite" href="#about-me">About me</a>
-        <a class="links" *ngIf="!imprintSite" href="#skills-section">Skills</a>
-        <a class="links" *ngIf="!imprintSite" href="#portfolio-section"
-          >Portfolio</a
-        >
-        <a href="/" class="links" *ngIf="imprintSite" routerLink="/">Home</a>
+        <a class="links" *ngIf="!imprintSite" href="#about-me">{{ getTranslation('ABOUT_ME') }}</a>
+        <a class="links" *ngIf="!imprintSite" href="#skills-section">{{ getTranslation('SKILLS') }}</a>
+        <a class="links" *ngIf="!imprintSite" href="#portfolio-section">{{ getTranslation('PORTFOLIO') }}</a>
+        <a href="/" class="links" *ngIf="imprintSite" routerLink="/">{{ getTranslation('HOME') }}</a>
       </div>
+  
+      <div class="language-switcher">
+        <button (click)="switchLanguage('en')" [class.active]="currentLanguage === 'en'">EN</button>
+        <button (click)="switchLanguage('de')" [class.active]="currentLanguage === 'de'">DE</button>
+      </div>
+  
       <div id="menuToggle">
         <input type="checkbox" #menuToggleInput />
   
@@ -20,19 +24,11 @@
         <span></span>
   
         <ul id="menu">
-          <a href="#about-me" *ngIf="!imprintSite" #menuLink><li>About me</li></a>
-          <a href="#skills-section" *ngIf="!imprintSite" #menuLink
-            ><li>My Skills</li></a
-          >
-          <a href="#portfolio-section" *ngIf="!imprintSite" #menuLink
-            ><li>Portfolio</li></a
-          >
-          <a href="#contact-section" *ngIf="!imprintSite" #menuLink
-            ><li>Contact</li></a
-          >
-          <a href="#contact-section" *ngIf="imprintSite" #menuLink
-            ><li>Home</li></a
-          >
+          <a href="#about-me" *ngIf="!imprintSite" #menuLink><li>{{ getTranslation('ABOUT_ME') }}</li></a>
+          <a href="#skills-section" *ngIf="!imprintSite" #menuLink><li>{{ getTranslation('SKILLS') }}</li></a>
+          <a href="#portfolio-section" *ngIf="!imprintSite" #menuLink><li>{{ getTranslation('PORTFOLIO') }}</li></a>
+          <a href="#contact-section" *ngIf="!imprintSite" #menuLink><li>{{ getTranslation('CONTACT') }}</li></a>
+          <a href="#contact-section" *ngIf="imprintSite" #menuLink><li>{{ getTranslation('HOME') }}</li></a>
         </ul>
       </div>
     </div>

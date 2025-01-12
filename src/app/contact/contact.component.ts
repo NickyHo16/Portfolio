@@ -1,14 +1,16 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import AOS from 'aos';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { PrivacyComponent } from '../privacy/privacy.component';
+import { TranslationService } from '../services/translation.service';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, FormsModule],
+  imports: [CommonModule, RouterModule , HttpClientModule, FormsModule, PrivacyComponent],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
 })
@@ -46,10 +48,15 @@ export class ContactComponent implements OnInit {
 
   target!: HTMLInputElement;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private translationService: TranslationService) {}
 
   ngOnInit(): void {
     AOS.init();
+  }
+
+  // Funktion zum Übersetzen von Text
+  translate(key: string): string {
+    return this.translationService.getTranslation(key);
   }
 
   async sendMail() {

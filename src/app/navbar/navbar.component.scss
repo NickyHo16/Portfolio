@@ -48,6 +48,34 @@
     }
   }
   }
+
+  .language-switcher {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-right: 40px;
+  
+    button {
+      background: transparent;
+      border: 1px solid #ccc;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      color: #fff;
+      transition: background 0.3s, color 0.3s;
+  
+      &:hover {
+        background: #16c4eb;
+        color: #fff;
+      }
+  
+      &.active {
+        background: #16c4eb;
+        color: #fff;
+        border: none;
+      }
+    }
+  }
   
   body {
     transition: margin-right .5s;

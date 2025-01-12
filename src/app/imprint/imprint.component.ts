@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, importProvidersFrom } from '@angular/core';
+import { Component, OnInit, importProvidersFrom } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { TranslationService } from '../services/translation.service';
 
 @Component({
   selector: 'app-imprint',
@@ -9,6 +10,15 @@ import { Router, RouterLink } from '@angular/router';
   templateUrl: './imprint.component.html',
   styleUrl: './imprint.component.scss'
 })
-export class ImprintComponent {
+export class ImprintComponent implements OnInit {
+  constructor(private translationService: TranslationService) {}
 
+  ngOnInit(): void {
+    window.scrollTo(0, 0); // Positioniere direkt oben, wenn die Komponente geladen wird
+  }
+
+  // Funktion zum Übersetzen von Text
+  translate(key: string): string {
+    return this.translationService.getTranslation(key);
+  }
 }

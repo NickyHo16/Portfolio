@@ -11,6 +11,7 @@ import { ImprintComponent } from './imprint/imprint.component';
 import { ContactComponent } from './contact/contact.component';
 import { filter } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
+import { PrivacyComponent } from './privacy/privacy.component';
 //import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -18,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
-    imports: [HttpClientModule, RouterLink, RouterOutlet, CommonModule, RouterModule , NavbarComponent, StartsiteComponent, HeaderComponent, MailIconsComponent, FooterComponent, ContactComponent, ImprintComponent],
+    imports: [HttpClientModule, PrivacyComponent,RouterOutlet, CommonModule, RouterModule, NavbarComponent, StartsiteComponent, HeaderComponent, MailIconsComponent, FooterComponent, ContactComponent, ImprintComponent],
     template: `
     <div>
       <button (click)="switchLanguage('en')">EN</button>

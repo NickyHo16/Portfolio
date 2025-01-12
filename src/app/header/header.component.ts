@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import AOS from "aos";
+import { TranslationService } from '../services/translation.service';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +11,7 @@ import AOS from "aos";
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit {
+  constructor(private translationService: TranslationService) {}
 
   ngOnInit(): void {
     AOS.init();
@@ -22,5 +24,9 @@ export class HeaderComponent implements OnInit {
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
     }
+  }
+
+  translate(key: string): string {
+    return this.translationService.getTranslation(key);
   }
 }
