@@ -233,3 +233,15 @@
     }
   }
   
+  @media (min-width: 1600px) {
+    .content-wrapper-wide {    
+      display: flex !important;
+      justify-content: center !important;
+      gap:100px;
+    }
+
+    .wide {
+      max-width: 500px;
+    }
+  }
+

@@ -238,4 +238,22 @@
       gap: 50px !important;
     }
   }
+
+  @media (min-width: 1600px) {
+    .content-wrapper-wide {    
+      display: flex !important;
+      justify-content: center !important;      
+      max-width: 500px;
+    }
+
+    .wide-wide{
+      display: flex !important;
+      justify-content: center !important;      
+    }
+
+    .purple-line{
+      display: none;
+    }
+
+  }
   

@@ -193,4 +193,12 @@
       width: 200px;
     }
   }
+
+  @media (min-width: 1600px) {
+    .content-wrapper-wide {    
+      display: flex !important;
+      justify-content: center !important;
+      gap:500px;
+    }
+  }
   

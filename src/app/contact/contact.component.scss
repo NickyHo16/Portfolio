@@ -161,6 +161,11 @@
   .wrapper label {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
+    overflow-wrap: break-word;
+    justify-content: center;
+    max-width: 290px;
+    white-space: nowrap;
     gap: 10px; /* Abstand zwischen Checkbox und Text */
     font-size: 16px;
     color: white;
@@ -533,6 +538,16 @@
       padding-right: 75px !important;
     }
   }
+
+  @media(max-width: 400px){
+    .wrapper label {     
+        overflow-wrap: break-word;
+        justify-content: center;
+        max-width: 240px;
+        white-space: normal;     
+    }
+  }
+  
   
   @media(max-width: 370px){
     .form-container {
@@ -560,6 +575,14 @@
     }
     .scroll-up-container {
       padding-right: 40px !important;
+    }
+  }
+
+  @media (min-width: 1600px) {
+    .content-wrapper-wide {    
+      display: flex !important;
+      justify-content: center !important;
+      gap:100px;
     }
   }
   
