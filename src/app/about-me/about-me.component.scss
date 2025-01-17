@@ -240,8 +240,16 @@
       gap:100px;
     }
 
+    .about-me-text-container{
+      max-width: 750px;
+    }
+
     .wide {
-      max-width: 500px;
+      max-width: 517px; //720
+    }
+
+    .line{
+      display: none;
     }
   }
 

@@ -347,8 +347,14 @@
   @media (min-width: 1600px) {
     .content-wrapper-wide {    
       display: flex !important;
-      justify-content: center !important;
-      gap:100px;
+      justify-content: center !important;      
+      max-width: 1500px;
+      margin-inline: auto;
     }
+
+    .performance-container{
+      margin-left: 10px !important;
+    }
+
+    
   }
-  

@@ -197,8 +197,17 @@
   @media (min-width: 1600px) {
     .content-wrapper-wide {    
       display: flex !important;
-      justify-content: center !important;
-      gap:500px;
+      justify-content: center !important;      
+      margin-inline: auto;
+      max-width: 2000px;
+    }
+
+    .purple-line-left{
+      max-width: 150px;
+    }
+
+    .purple-line-right{
+      max-width: 650px;
     }
   }
   

@@ -8,7 +8,7 @@
         <a class="links" *ngIf="!imprintSite" href="#about-me">{{ getTranslation('ABOUT_ME') }}</a>
         <a class="links" *ngIf="!imprintSite" href="#skills-section">{{ getTranslation('SKILLS') }}</a>
         <a class="links" *ngIf="!imprintSite" href="#portfolio-section">{{ getTranslation('PORTFOLIO') }}</a>
-        <a href="/" class="links" *ngIf="imprintSite" routerLink="/">{{ getTranslation('HOME') }}</a>
+        <a href="/" class="links homelink" *ngIf="imprintSite" routerLink="/">{{ getTranslation('HOME') }}</a>
       </div>
   
       <div class="language-switcher">

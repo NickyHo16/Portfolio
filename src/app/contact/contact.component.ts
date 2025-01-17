@@ -172,6 +172,12 @@ export class ContactComponent implements OnInit {
       //console.error('Target is not defined in onInput!');
       return;
     }
+
+    // Für das Feld 'message' explizit das Ziel setzen
+    if (inputType === 'message') {
+    this.target = this.messageField.nativeElement;
+  }
+
     this.checkInputState();
     this.checkInputValue(inputType);
     this.showGreenCheckImage(inputType);

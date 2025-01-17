@@ -583,6 +583,23 @@
       display: flex !important;
       justify-content: center !important;
       gap:100px;
+      max-width: 1313px;
+      margin-inline: auto;
+    }
+
+    .purple-line{
+      display: none;
+    }
+
+    .form-container{
+      padding-right: 80px;
     }
   }
+
+  @media(max-width: 1600px){
+    .scroll-up-container {     
+      justify-content: center !important; 
+    }
+  }
+  
   

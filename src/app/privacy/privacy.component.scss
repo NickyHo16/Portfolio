@@ -44,8 +44,8 @@
     .content-wrapper-wide {    
       display: flex !important;
       justify-content: center !important;     
-      margin-inline-start: 200px;
-      margin-inline-end: 200px; 
+      max-width: 1220px;
+      margin-inline: auto;   
     }
   }
   

@@ -136,7 +136,7 @@ export class TranslationService {
       EMAIL_REQUIRED:'Your email is required',
       MASSAGE_REQUIRED:'Your message is required',
       PRIVACY_CHECK:'I have read the',
-      PRIVACY_CHECK_2:'PrivacyPolicy',
+      PRIVACY_CHECK_2:'Privacy Policy',
       PRIVACY_CHECK_3:'and agree to the processing of my data as described.',      
       BUTTON_SENDMAIL:'Send Message',
       SENDMAIL_CONTENT:'Your email has been send successfully!',

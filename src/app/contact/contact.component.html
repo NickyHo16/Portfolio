@@ -1,9 +1,9 @@
-<div class="contact-headline-container content-wrapper-wide" id="contact-section" data-aos="fade-up">
+<div class="contact-headline-container content-wrapper-wide" id="contact-section" data-aos="fade-up" data-aos-duration="2000">
   <div class="purple-line"></div>
   <h1>{{ translate('CONTACT_TITLE') }}</h1>
 </div>
 
-<div class="contact-me-container content-wrapper-wide" data-aos="zoom-in">
+<div class="contact-me-container content-wrapper-wide" data-aos="zoom-in" data-aos-duration="2000">
   <div class="solving-problem-container">
     <h2>{{ translate('CONTACT_DESCRIPTION') }}</h2>
     <p>
@@ -41,7 +41,7 @@
     <div class="wrapper">
       <label>
         <input type="checkbox" name="privacyPolicy" required [(ngModel)]="isPrivacyChecked" /> 
-        {{ translate('PRIVACY_CHECK') }} <a routerLink="/privacy">{{ translate('PRIVACY_CHECK_2') }}</a> {{ translate('PRIVACY_CHECK_3') }}
+        {{ translate('PRIVACY_CHECK') }} <a style="color: #4b47ff;"  routerLink="/privacy">{{ translate('PRIVACY_CHECK_2') }}</a> {{ translate('PRIVACY_CHECK_3') }}
       </label>
     </div>
     <button class="contact-button send-button" #sendButton type="submit"
