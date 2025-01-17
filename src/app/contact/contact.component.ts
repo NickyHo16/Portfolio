@@ -112,6 +112,11 @@ export class ContactComponent implements OnInit {
     }
   }
 
+  //prüft, ob alle Felder ausgefüllt sind.
+  isFormValid(): boolean {
+    return this.showGreenCheckName && this.showGreenCheckEmail && this.showGreenCheckMessage && this.isPrivacyChecked;
+  }
+
   resetForm() {
     this.nameField.nativeElement.value = '';
     this.emailField.nativeElement.value = '';
@@ -128,6 +133,9 @@ export class ContactComponent implements OnInit {
     this.emailSent = false;
     this.showSpanMsg = false;
     this.addClassToButton = false;
+
+     // Reset checkbox
+     this.isPrivacyChecked = false; // Checkbox deaktivieren
     
 
     // Clear CSS classes
@@ -160,23 +168,23 @@ export class ContactComponent implements OnInit {
     this.checkInputState();
   }
 
-  //onInput(inputType: string) {
-  //  this.checkInputState();
-  //  this.checkInputValue(inputType);
-  //  this.showGreenCheckImage(inputType);
-  //}
-
+  
   onInput(inputType: string) {
+
+    // Explizit das richtige Feld als Ziel setzen
+  if (inputType === 'name') {
+    this.target = this.nameField.nativeElement;
+  } else if (inputType === 'email') {
+    this.target = this.emailField.nativeElement;
+  } else if (inputType === 'message') {
+    this.target = this.messageField.nativeElement;
+  }
     //console.log('onInput event triggered for:', inputType);
     if (!this.target) {
       //console.error('Target is not defined in onInput!');
       return;
     }
 
-    // Für das Feld 'message' explizit das Ziel setzen
-    if (inputType === 'message') {
-    this.target = this.messageField.nativeElement;
-  }
 
     this.checkInputState();
     this.checkInputValue(inputType);
@@ -214,7 +222,7 @@ export class ContactComponent implements OnInit {
     this.target.classList.add('input-bg-warning');
   }
 
-  checkInputValue(inputType: string) {
+  checkInputValue(inputType: string) {    
     this.target.value.length > 0
       ? this.showRequiredMessage(inputType)
       : this.hideRequiredMessage(inputType);
@@ -232,22 +240,50 @@ export class ContactComponent implements OnInit {
     this[`${oneInputField}`] = true;
   }
 
-  showGreenCheckImage(inputType: string) {
-    let oneInputField =
-      'showGreenCheck' + inputType.charAt(0).toUpperCase() + inputType.slice(1);
-    //this[`${oneInputField}`] = this.target.value.length > 0;
-    if (inputType === 'email') {
+  //showGreenCheckImage(inputType: string) {
+  //  let oneInputField =
+  //    'showGreenCheck' + inputType.charAt(0).toUpperCase() + inputType.slice(1);
+   // //this[`${oneInputField}`] = this.target.value.length > 0;
+
+  //  if (inputType === 'name') {
+   //   const nameValue = this.nameField.nativeElement.value.trim(); // Leerzeichen entfernen
+   // this[`${oneInputField}`] = nameValue.length > 0; // Grüner Haken, wenn der Name nicht leer ist
+    
+      
+ //   } else if (inputType === 'email') {
       // Spezifische Prüfung für das E-Mail-Feld
-      const emailField = this.emailField.nativeElement.value;
-      const emailPattern = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}$/;
-      this[`${oneInputField}`] = emailPattern.test(emailField); // Grüner Haken nur bei gültiger E-Mail
-      this.showWarningEmail = !emailPattern.test(emailField); // Required-Nachricht bei ungültiger E-Mail
-      this.target = this.emailField.nativeElement; // Ziel korrekt setzen
-    } else {
+   //   const emailField = this.emailField.nativeElement.value;
+    //  const emailPattern = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}$/;
+    //  this[`${oneInputField}`] = emailPattern.test(emailField); // Grüner Haken nur bei gültiger E-Mail
+   //   this.showWarningEmail = !emailPattern.test(emailField); // Required-Nachricht bei ungültiger E-Mail
+    //  this.target = this.emailField.nativeElement; // Ziel korrekt setzen
+    
+   // } else {
       // Standardprüfung für andere Felder
-      const field = this[inputType + 'Field'].nativeElement.value.trim();
-      this[`${oneInputField}`] = field.length > 0; // Grüner Haken bei nicht-leeren Feldern
-      this[`showWarning${inputType.charAt(0).toUpperCase() + inputType.slice(1)}`] = field.length === 0; // Required-Nachricht bei leeren Feldern
-    }
+  //    const field = this[inputType + 'Field'].nativeElement.value.trim();
+   //   this[`${oneInputField}`] = field.length > 0; // Grüner Haken bei nicht-leeren Feldern
+  //    this[`showWarning${inputType.charAt(0).toUpperCase() + inputType.slice(1)}`] = field.length === 0; // Required-Nachricht bei leeren Feldern
+ //   }
+ // }
+
+ showGreenCheckImage(inputType: string) {
+  let oneInputField =
+    'showGreenCheck' + inputType.charAt(0).toUpperCase() + inputType.slice(1);
+
+  let fieldValue = '';
+
+  if (inputType === 'name') {
+    fieldValue = this.nameField.nativeElement.value.trim(); // Leerzeichen entfernen
+    this[`${oneInputField}`] = fieldValue.length > 0; // Grüner Haken, wenn der Name nicht leer ist
+  } else if (inputType === 'email') {
+    fieldValue = this.emailField.nativeElement.value.trim(); // Leerzeichen entfernen
+    const emailPattern = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}$/;
+    this[`${oneInputField}`] = emailPattern.test(fieldValue); // Grüner Haken nur bei gültiger E-Mail
+    this.showWarningEmail = !emailPattern.test(fieldValue); // Required-Nachricht bei ungültiger E-Mail
+  } else if (inputType === 'message') {
+    fieldValue = this.messageField.nativeElement.value; // Leerzeichen werden hier nicht entfernt
+    this[`${oneInputField}`] = fieldValue.length > 0; // Grüner Haken bei jeglichem Text
   }
+}
+
 }

@@ -140,6 +140,18 @@
           height: 70px;
           background-color: #4B47FF;
       }}
+
+      button:disabled {
+        cursor: not-allowed; 
+        opacity: 0.5; 
+      }
+      
+      button:disabled:hover {
+        background-color: #00BEE8; 
+        width: 250px; 
+        height: 60px; 
+        cursor: not-allowed; 
+      }
     }
   
   .wrapper{

@@ -193,6 +193,14 @@
   }
 }
 
+@media(max-width: 480px){
+  .button-ger-eng {      
+    max-height: 25px !important;
+    max-width: 39px !important;
+}
+}
+
+
 @media (min-width: 1600px) {
   .content-wrapper-wide {    
     display: flex !important;

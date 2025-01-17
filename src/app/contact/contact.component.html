@@ -45,7 +45,7 @@
       </label>
     </div>
     <button class="contact-button send-button" #sendButton type="submit"
-      [ngClass]="{ sent: emailSent, 'd-none': addClassToButton }" [disabled]="!isPrivacyChecked">
+      [ngClass]="{ sent: emailSent, 'd-none': addClassToButton }" [disabled]="!isFormValid()" > <!-- [disabled]="!isPrivacyChecked"-->
       <span class="message" *ngIf="!emailSent">{{ translate('BUTTON_SENDMAIL') }}</span>
     </button>
     <div class="message-sent-container">
